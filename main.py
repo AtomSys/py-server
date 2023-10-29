@@ -1,5 +1,8 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import time
+import contextlib
+import mimetypes
+import os.path
 config = open("config.txt", "r")
 configlist = config.read().split("__")
 
