@@ -18,6 +18,13 @@ class MyServer(BaseHTTPRequestHandler):
             self.send_header("Content-type", "text/html")
             self.end_headers()
             self.wfile.write(bytes(mp, "utf-8"))
+        elif os.path.exists("srvf" + self.path):
+            pgop = open("srvf" + self.path, "r") 
+            pg = pgop.read()
+            self.send_response(200)
+            self.send_header("Content-type", "text/html")
+            self.end_headers()
+            self.wfile.write(bytes(pg, "utf-8"))
 
 if __name__ == "__main__":        
     webServer = HTTPServer((hostName, int(serverPort)), MyServer)
