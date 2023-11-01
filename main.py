@@ -6,7 +6,7 @@ import os.path
 config = open("config.txt", "r")
 configlist = config.read().split("__")
 
-hostName = "0.0.0.0"
+hostName = str(open("configs/ip.txt", "r").read())
 serverPort = "8080"
 
 class MyServer(BaseHTTPRequestHandler):
